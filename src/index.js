@@ -1,7 +1,7 @@
 
 import './styles.css';
 import { Todo, TodoList } from './classes';
-import { crearTodoHtml, crearCuentaTodos } from './js/componentes';
+import { crearTodoHtml } from './js/componentes';
 
 
 export const todoList = new TodoList();
@@ -11,8 +11,6 @@ export const todoList = new TodoList();
 //Recargar y mostar todos mis todos desde LocalStorage en HTML:
 todoList.todos.forEach(todo => crearTodoHtml(todo));
 //? EQUIVALE: todoList.todos.forEach(crearTodoHtml); //SOLO si recibe UN argumento-parametro
-
-crearCuentaTodos(todoList.todos);
 
 // const newTodo = new Todo('Aprender Javascript');
 //- todoList.nuevoTodo(newTodo);

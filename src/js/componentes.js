@@ -8,8 +8,7 @@ const btnBorrar = document.querySelector('.clear-completed');
 const ulFiltros = document.querySelector('.filters');
 const anchorFiltros = document.querySelectorAll('.filtro');
 
-const cuentaPendientes = document.querySelector('.todo-count');
-const footer = document.querySelector('.footer');
+export const countTodo = document.querySelector('.todo-count');
 
 export const crearTodoHtml = (todo) => {
 
@@ -30,16 +29,6 @@ export const crearTodoHtml = (todo) => {
 
     return div.firstElementChild; //solo retorno el li
 
-}
-
-export const crearCuentaTodos = (todos) => {
-    const htmlContarPendientes = `<span class="todo-count"><strong>${todos.length}</strong> pendiente(s)</span>`;
-
-    const div2 = document.createElement('div');
-    div2.innerHTML = htmlContarPendientes;
-
-    footer.append(div2.firstElementChild);
-    return div2.firstElementChild;
 }
 
 //Eventos:
@@ -103,6 +92,7 @@ btnBorrar.addEventListener('click', () => {
 ulFiltros.addEventListener('click', (event) => {
     //console.log(event.target.text);
     const filtro = event.target.text;
+    //Si no existe filtro, entra en el if y hace un return, por lo que no seguirá ejecutando las siguientes líneas de código
     if (!filtro) { return; };
 
     anchorFiltros.forEach(elem => elem.classList.remove('selected'));
